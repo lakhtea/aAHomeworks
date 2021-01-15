@@ -4,7 +4,7 @@ class Map
     end
 
     def set(key, value)
-        @map.include?(key) ? @map.each { |pair| pair[1] = value if pair[0] == key } : @map << [key, value]
+        @map.any? { |pair| pair[0] == key } ? @map.each_with_index { |pair, idx| @map[idx][1] = value if pair[0] == key } : @map << [key, value]
     end
 
     def get(key)
